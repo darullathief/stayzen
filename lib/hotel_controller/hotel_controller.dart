@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'model/hotels.dart';
+import '../model/hotels.dart';
 
 class HotelController {
   List<Hotel> hotels = [];
