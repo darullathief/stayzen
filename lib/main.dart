@@ -4,6 +4,6 @@ import 'package:http/http.dart';
 import 'Home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const HomeScreen());
 }
 
