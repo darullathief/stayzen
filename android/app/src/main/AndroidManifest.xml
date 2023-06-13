@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.stayzen">
-   <application
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
         android:label="stayzen"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
