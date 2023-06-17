@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'HotelDetailScreen.dart';
-import 'hotel_controller/hotel_controller.dart';
-import 'model/hotels.dart';
+import 'hotel_controller/HotelController.dart';
+import 'model/Hotels.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
