@@ -72,7 +72,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage>
           ),
         ],
       ),
-      bottomNavigationBar: MyBottomAppBar(),
+      bottomNavigationBar: MyBottomAppBar(currentIndex: 1,),
     );
   }
 }

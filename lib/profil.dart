@@ -214,7 +214,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: MyBottomAppBar()
+      bottomNavigationBar: MyBottomAppBar(currentIndex: 2,)
     );
   }
 }
