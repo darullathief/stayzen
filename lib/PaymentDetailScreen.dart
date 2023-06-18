@@ -47,6 +47,13 @@ class _PaymentDetailScreenScreenPageState
     },
   ];
 
+  void _navigateToPaymentPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PaymentPage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -343,13 +350,36 @@ class _PaymentDetailScreenScreenPageState
               ),
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PaymentPage(),
+                      ),
+                    );
+                  },
                   child: Text("Lanjutkan"),
                 ),
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class PaymentPage extends StatelessWidget {
+  const PaymentPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Payment Info'),
+      ),
+      body: Center(
+        child: Text('Payment Info Page'),
       ),
     );
   }
