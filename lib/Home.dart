@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stayzen/BottomAppBar.dart';
 
 import 'HotelDetailScreen.dart';
 import 'hotel_controller/HotelController.dart';
@@ -471,32 +472,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               )
             ])),
-        bottomNavigationBar: BottomAppBar(
-          padding: EdgeInsets.symmetric(vertical: 4),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                onPressed: () {
-                  // Aksi ketika bagian pertama ditekan
-                },
-                icon: Icon(Icons.home),
-              ),
-              IconButton(
-                onPressed: () {
-                  // Aksi ketika bagian kedua ditekan
-                },
-                icon: Icon(Icons.search),
-              ),
-              IconButton(
-                onPressed: () {
-                  // Aksi ketika bagian ketiga ditekan
-                },
-                icon: Icon(Icons.person),
-              ),
-            ],
-          ),
-        ) // This trailing comma makes auto-formatting nicer for build methods.
+        bottomNavigationBar: MyBottomAppBar()
+        // This trailing comma makes auto-formatting nicer for build methods.
         );
   }
 }

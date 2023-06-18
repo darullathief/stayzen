@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stayzen/BottomAppBar.dart';
 
 class OrderHistoryPage extends StatefulWidget {
   const OrderHistoryPage({Key? key}) : super(key: key);
@@ -71,6 +72,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage>
           ),
         ],
       ),
+      bottomNavigationBar: MyBottomAppBar(),
     );
   }
 }
