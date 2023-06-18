@@ -65,6 +65,7 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor:Color(0xFF00A6DA) ,
         title: Text("Detail Pemesanan"),
       ),
       body: Padding(

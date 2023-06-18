@@ -76,6 +76,7 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor:Color(0xFF00A6DA) ,
         title: Text(" "),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -201,15 +202,19 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
                                           ),
                                         ],
                                       ),
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (context) => OrderDetailScreen()),
-                                          );
-                                        },
-                                        child: Text("Pesan"),
-                                      ),
+  ElevatedButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => OrderDetailScreen()),
+    );
+  },
+  style: ElevatedButton.styleFrom(
+    primary: Color(0xFF00A6DA), // Set the button color
+  ),
+  child: Text("Pesan"),
+),
+
                                     ],
                                   ),
                                 );

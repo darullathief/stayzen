@@ -28,47 +28,53 @@ class _OrderHistoryPageState extends State<OrderHistoryPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riwayat Pesanan'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: const [
-            Tab(text: 'Riwayat'),
-            Tab(text: 'Sedang Berjalan'),
-          ],
-          indicatorColor: Colors.white,
-          indicatorWeight: 3.0,
-        ),
+        backgroundColor:Color(0xFF00A6DA) ,
+        automaticallyImplyLeading: false, // Menghilangkan tombol kembali (back button)
+        centerTitle: true,
+        title: const Text('Pesanan Saya'),
       ),
-      body: TabBarView(
-        controller: _tabController,
+      body: Column(
         children: [
-          ListView(
-            children: const [
-              OrderHistoryItem(
-                hotelName: 'Villa Sunset Paradise',
-                date: 'Check-In: 20 Mei 2023',
-                review: null,
-              ),
-              OrderHistoryItem(
-                hotelName: 'Bekasi Indah',
-                date: 'Check-In: 11 Januari 2023',
-                review: 'Pelayanan kurang memuaskan.',
-              ),
-              OrderHistoryItem(
-                hotelName: 'Selatan View',
-                date: 'Check-In: 20 September 2023',
-                review: 'Pemandangan luar biasa!',
-              ),
-            ],
+          Container(
+            color: const Color(0xFF00A6DA),
+            child: TabBar(
+              controller: _tabController,
+              tabs: const [
+                Tab(text: 'Riwayat'),
+                Tab(text: 'Sedang Berjalan'),
+              ],
+              indicatorColor: Colors.white,
+              indicatorWeight: 3.0,
+            ),
           ),
-          const Center(
-            child: Text('Halaman Sedang Berjalan'),
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                ListView(
+                  children: const [
+                    OrderHistoryItem(
+                      hotelName: 'Villa Sunset Paradise',
+                      date: 'Check-In: 20 Mei 2023',
+                      review: null,
+                    ),
+                    OrderHistoryItem(
+                      hotelName: 'Bekasi Indah',
+                      date: 'Check-In: 11 Januari 2023',
+                      review: 'Pelayanan kurang memuaskan.',
+                    ),
+                    OrderHistoryItem(
+                      hotelName: 'Selatan View',
+                      date: 'Check-In: 20 September 2023',
+                      review: 'Pemandangan luar biasa!',
+                    ),
+                  ],
+                ),
+                const Center(
+                  child: Text('Halaman Sedang Berjalan'),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -120,12 +126,18 @@ class OrderHistoryItem extends StatelessWidget {
                   // Tambahkan kode untuk menangani tombol pesan lagi
                 },
                 child: const Text('Pesan Lagi'),
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xFF00A6DA),
+                ),
               )
             : ElevatedButton(
                 onPressed: () {
                   // Tambahkan kode untuk menangani tombol beri tanggapan
                 },
                 child: const Text('Beri Tanggapan'),
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xFF00A6DA),
+                ),
               ),
         onTap: () {
           // Tambahkan kode untuk menavigasi ke halaman detail pesanan
@@ -135,8 +147,3 @@ class OrderHistoryItem extends StatelessWidget {
   }
 }
 
-// void main() {
-//   runApp(const MaterialApp(
-//     home: OrderHistoryPage(),
-//   ));
-// }

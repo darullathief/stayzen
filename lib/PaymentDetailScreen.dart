@@ -53,6 +53,7 @@ class _PaymentDetailScreenScreenPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+      backgroundColor:Color(0xFF00A6DA) ,
         title: Text("Detail Pembayaran"),
       ),
       body: SingleChildScrollView(

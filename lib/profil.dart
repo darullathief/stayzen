@@ -77,13 +77,13 @@ class ProfilePage extends StatelessWidget {
                             ),
                           ),
                           const Positioned(
-                            bottom: 12,
+                            bottom: 20,
                             left: 0,
                             right: 0,
                             child: Center(
                               child: Text(
                                 'Natasha Wilona',
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -245,6 +245,12 @@ class ProfilePage extends StatelessWidget {
                 child: Text(
                   'Ingin ganti akun? Log out',
                   style: TextStyle(fontSize: 16),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey[400], // Ubah warna latar belakang menjadi abu-abu tua
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30), // Ubah sudut tombol menjadi round
+                  ),
                 ),
               ),
             ],
