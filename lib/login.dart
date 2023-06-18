@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'home.dart'; // Import halaman HomeScreen
 
 
@@ -25,6 +26,7 @@ class LoginPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               child: TextField(
+                style: GoogleFonts.poppins(), // Ubah font input field
                 decoration: InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(),
@@ -35,6 +37,7 @@ class LoginPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               child: TextField(
+                style: GoogleFonts.poppins(), // Ubah font input field
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
@@ -60,7 +63,10 @@ class LoginPage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => HomeScreen()),
                   );
                 },
-                child: Text('Login'),
+                child: Text(
+                  'Login',
+                  style: GoogleFonts.poppins(), // Ubah font tombol
+                ),
               ),
             ),
             SizedBox(height: 20),
@@ -87,7 +93,10 @@ class LoginPage extends StatelessWidget {
                     width: 30,
                     height: 30,
                   ),
-                  label: Text('Log in dengan Google'),
+                  label: Text(
+                    'Log in dengan Google',
+                    style: GoogleFonts.poppins(), // Ubah font teks
+                  ),
                 ),
               ],
             ),
@@ -113,7 +122,10 @@ class LoginPage extends StatelessWidget {
                     width: 30,
                     height: 30,
                   ),
-                  label: Text('Log in dengan Facebook'),
+                  label: Text(
+                    'Log in dengan Facebook',
+                    style: GoogleFonts.poppins(), // Ubah font teks
+                  ),
                 ),
               ],
             ),
@@ -122,7 +134,10 @@ class LoginPage extends StatelessWidget {
               onPressed: () {
                 // Aksi ketika tombol "Lupa Kata Sandi?" ditekan
               },
-              child: Text('Lupa Kata Sandi?'),
+              child: Text(
+                'Lupa Kata Sandi?',
+                style: GoogleFonts.poppins(), // Ubah font teks
+              ),
             ),
             SizedBox(height: 5),
             SizedBox(height: 100),
@@ -132,7 +147,7 @@ class LoginPage extends StatelessWidget {
               },
               child: Text(
                 'Belum punya akun? Sign up',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold), // Ubah font teks dan tambahkan ketebalan
               ),
             ),
           ],
@@ -150,6 +165,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.poppinsTextTheme(), // Ubah tema teks global menjadi Poppins
       ),
       home: LoginPage(),
     );

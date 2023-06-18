@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stayzen/BottomAppBar.dart';
 import 'login.dart';
+import 'setting.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -62,47 +63,56 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 40),
-              SizedBox(
-                width: 200,
-                height: 80,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  color: const Color.fromRGBO(
-                      0, 166, 218, 100), // Ubah warna Card sesuai kebutuhan
-                  child: ListTile(
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
-                    leading: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: Icon(
-                            Icons.settings,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Padding(
-                          padding: EdgeInsets.only(left: 2),
-                          child: Text(
-                            'Pengaturan',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors
-                                  .white, // Ubah warna teks sesuai kebutuhan
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfileSettingsPage(),
+                    ),
+                  );
+                },
+                child: SizedBox(
+                  width: 200,
+                  height: 80,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    color: const Color.fromRGBO(
+                        0, 166, 218, 100), // Ubah warna Card sesuai kebutuhan
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 24),
+                      leading: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Icon(
+                              Icons.settings,
+                              size: 30,
+                              color: Colors.white,
                             ),
                           ),
-                        ),
-                      ],
+                          SizedBox(width: 10),
+                          Padding(
+                            padding: EdgeInsets.only(left: 2),
+                            child: Text(
+                              'Pengaturan',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color:
+                                    Colors.white, // Ubah warna teks sesuai kebutuhan
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    // Tambahkan kode untuk menavigasi ke halaman fitur 1 di sini
                   ),
                 ),
               ),
@@ -198,13 +208,12 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               ElevatedButton(
-            onPressed: () {
-                Navigator.push(
-                 context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
-  );
-},
-
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
                 child: Text(
                   'Ingin ganti akun? Log out',
                   style: TextStyle(fontSize: 16),
@@ -214,7 +223,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: MyBottomAppBar(currentIndex: 2,)
+      bottomNavigationBar: MyBottomAppBar(currentIndex: 2,),
     );
   }
 }

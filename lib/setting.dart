@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'profil.dart';
 
 class ProfileSettingsPage extends StatefulWidget {
   @override
@@ -97,6 +98,9 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
                   String address = _addressController.text;
 
                   // Tambahkan logika penyimpanan atau tindakan lain sesuai kebutuhan
+
+                  // Kembali ke halaman profil.dart
+                  Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(
