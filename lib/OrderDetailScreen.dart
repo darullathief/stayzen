@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'PaymentDetailScreen.dart';
 
 class OrderDetailScreen extends StatelessWidget {
   const OrderDetailScreen({Key? key});
@@ -51,6 +52,13 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
     checkInController.dispose();
     checkOutController.dispose();
     super.dispose();
+  }
+
+  void _handleSubmitButton() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PaymentDetailScreen()),
+    );
   }
 
   @override
@@ -177,10 +185,11 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
             Row(
               children: [
                 Expanded(
-                    child: ElevatedButton(
-                    onPressed: () {},
+                  child: ElevatedButton(
+                    onPressed: _handleSubmitButton,
                     child: Text("Submit"),
-                ))
+                  ),
+                ),
               ],
             )
           ],
