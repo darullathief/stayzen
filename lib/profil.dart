@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -60,7 +61,6 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 40),
-
               SizedBox(
                 width: 200,
                 height: 80,
@@ -196,9 +196,14 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              // Fitur
-              const Padding(
-                padding: EdgeInsets.only(bottom: 5),
+              ElevatedButton(
+            onPressed: () {
+                Navigator.push(
+                 context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+  );
+},
+
                 child: Text(
                   'Ingin ganti akun? Log out',
                   style: TextStyle(fontSize: 16),
@@ -240,9 +245,3 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
-
-// void main() {
-//   runApp(MaterialApp(
-//     home: ProfilePage(),
-//   ));
-// }
