@@ -10,7 +10,7 @@ void main() {
   runApp(
     MaterialApp(
       title: "Stayzen",
-      home: ProfilePage(),
+      home: LoginPage(),
     )
   );
 }
