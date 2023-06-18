@@ -121,9 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              HotelDetailScreen(), // Halaman tujuan
-                        ),
+                            builder: (context) => HotelDetailScreen(argument: hotels[0].kdHotel),
+                            settings: RouteSettings(arguments: {
+                              "id": hotels[0].nmHotel,
+                            }) // Halaman tujuan
+                            ),
                       );
                     },
                     child: Container(
@@ -185,9 +187,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              HotelDetailScreen(), // Halaman tujuan
-                        ),
+                            builder: (context) => HotelDetailScreen(argument: hotels[1].kdHotel,),
+                            settings: RouteSettings(arguments: {
+                              'id': hotels[1].kdHotel
+                            }) // Halaman tujuan
+                            ),
                       );
                     },
                     child: Container(
@@ -252,7 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          HotelDetailScreen(), // Halaman tujuan
+                          HotelDetailScreen(argument: '',), // Halaman tujuan
                     ),
                   );
                 },
@@ -277,7 +281,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                HotelDetailScreen(), // Halaman tujuan
+                                HotelDetailScreen(argument: '',), // Halaman tujuan
                           ),
                         );
                       },
@@ -341,7 +345,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                HotelDetailScreen(), // Halaman tujuan
+                                HotelDetailScreen(argument: '',), // Halaman tujuan
                           ),
                         );
                       },
@@ -405,7 +409,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                HotelDetailScreen(), // Halaman tujuan
+                                HotelDetailScreen(argument: '',), // Halaman tujuan
                           ),
                         );
                       },
