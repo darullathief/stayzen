@@ -13,9 +13,10 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 70),
             Center(
               child: Image.network(
-                'https://i.ibb.co/pZGSVR5/logo.png',
+                'https://darullathief.000webhostapp.com/img/logo_stayzen.png',
                 width: 200,
                 height: 200,
+                fit: BoxFit.contain,
               ),
             ),
             SizedBox(height: 40),
@@ -134,5 +135,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
