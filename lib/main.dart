@@ -7,10 +7,7 @@ import 'Home.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      title: "Stayzen",
-      home: PaymentPage(),
-    )
+    HomeScreen()
   );
 
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stayzen/Home.dart';
-// import 'package:progress_dialog/progress_dialog.dart';
+import 'package:progress_dialog_null_safe/progress_dialog_null_safe.dart';
 
 import 'hotel_controller/HotelDetailController.dart';
 import 'model/HotelDetail.dart';
@@ -26,7 +26,8 @@ class HotelDetailScreen extends StatelessWidget {
 
 class HotelDetailScreenPage extends StatefulWidget {
   const HotelDetailScreenPage(
-      {Key? key, required this.title, required this.argument});
+      {Key? key, required this.title, required this.argument})
+      : super(key: key);
 
   final String title;
   final String argument;
@@ -38,13 +39,14 @@ class HotelDetailScreenPage extends StatefulWidget {
 class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
   List<HotelModel> hotel = [];
   List<RoomTypeModel> roomTypes = [];
-  // ProgressDialog? progressDialog;
-  // bool isLoading = true;
+  ProgressDialog? progressDialog;
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    // progressDialog = ProgressDialog(context);
+    progressDialog = ProgressDialog(context);
+    fetchData();
     HotelDetailController(id: widget.argument).fetchHotels().then((hotelList) {
       setState(() {
         hotel = hotelList;
@@ -53,21 +55,32 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
     });
   }
 
+  void fetchData() async {
+    progressDialog?.show();
+
+    // Simulasi pengambilan data dari API
+    await Future.delayed(Duration(seconds: 3));
+
+    progressDialog?.hide();
+    setState(() {
+      isLoading = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context,
-                MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
-                ),);
+          title: Text(" "),
+          leading: BackButton(
+            color: Colors.white,
+            onPressed: (){
             },
           ),
         ),
-        body: SingleChildScrollView(
+        body: isLoading
+            ? Center(child: CircularProgressIndicator())
+          :SingleChildScrollView(
           child: Container(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
