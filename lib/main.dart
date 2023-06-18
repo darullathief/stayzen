@@ -6,6 +6,6 @@ import 'package:stayzen/PaymentDetailScreen.dart';
 import 'Home.dart';
 
 void main() {
-  runApp(const PaymentDetailScreen());
+  runApp(const HomeScreen());
 }
 
