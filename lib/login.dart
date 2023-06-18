@@ -37,6 +37,12 @@ class LoginPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      // Tambahkan aksi ketika ikon mata ditekan
+                    },
+                    icon: Icon(Icons.visibility),
+                  ),
                 ),
               ),
             ),
