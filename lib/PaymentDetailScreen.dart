@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'PaymentInfo.dart';
+
 class PaymentDetailScreen extends StatelessWidget {
   const PaymentDetailScreen({Key? key});
 
@@ -46,13 +48,6 @@ class _PaymentDetailScreenScreenPageState
       'text': 'BCA',
     },
   ];
-
-  void _navigateToPaymentPage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => PaymentPage()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -364,22 +359,6 @@ class _PaymentDetailScreenScreenPageState
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class PaymentPage extends StatelessWidget {
-  const PaymentPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Payment Info'),
-      ),
-      body: Center(
-        child: Text('Payment Info Page'),
       ),
     );
   }
