@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stayzen/BottomAppBar.dart';
 import 'login.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -213,35 +214,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Icon(Icons.home, size: 28),
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Icon(Icons.shopping_cart, size: 28),
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Icon(Icons.person, size: 28),
-            ),
-            label: '',
-          ),
-        ],
-        onTap: (index) {
-          // Tambahkan kode untuk menavigasi berdasarkan indeks yang dipilih
-        },
-      ),
+      bottomNavigationBar: MyBottomAppBar(currentIndex: 2,)
     );
   }
 }
