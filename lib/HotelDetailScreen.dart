@@ -76,7 +76,7 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Color(0xFF00A6DA) ,
+        backgroundColor: Color(0xFF00A6DA),
         title: Text(" "),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -153,9 +153,11 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
                             child: ListView.builder(
                               itemCount: hotel[0].tipeKamar.length,
                               itemBuilder: (context, index) {
-                                final value = hotel[0].tipeKamar.values.toList()[index];
+                                final value =
+                                    hotel[0].tipeKamar.values.toList()[index];
                                 return Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 12),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     boxShadow: [
@@ -172,12 +174,14 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
                                     color: Colors.white,
                                   ),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Row(
                                         children: [
                                           ClipRRect(
-                                            borderRadius: BorderRadius.circular(15),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
                                             child: Image.network(
                                               value.fotoKamar,
                                               height: 70,
@@ -189,7 +193,8 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
                                             width: 8,
                                           ),
                                           Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Text(
                                                 value.nmTipe,
@@ -198,23 +203,26 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
                                                 ),
                                               ),
                                               Text(value.deskripsiFasilitas),
+                                              Text(value.harga)
                                             ],
                                           ),
                                         ],
                                       ),
-  ElevatedButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => OrderDetailScreen()),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    primary: Color(0xFF00A6DA), // Set the button color
-  ),
-  child: Text("Pesan"),
-),
-
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    OrderDetailScreen()),
+                                          );
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Color(
+                                              0xFF00A6DA), // Set the button color
+                                        ),
+                                        child: Text("Pesan"),
+                                      ),
                                     ],
                                   ),
                                 );
@@ -245,9 +253,11 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
                             child: ListView.builder(
                               itemCount: hotel[0].ulasan.length,
                               itemBuilder: (context, index) {
-                                final value = hotel[0].ulasan.values.toList()[index];
+                                final value =
+                                    hotel[0].ulasan.values.toList()[index];
                                 return Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 12),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     boxShadow: [
@@ -264,8 +274,10 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
                                     color: Colors.white,
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         value.idPengguna,

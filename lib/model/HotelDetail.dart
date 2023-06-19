@@ -47,12 +47,14 @@ class HotelModel {
 class RoomTypeModel {
   String idTipe;
   String nmTipe;
+  String harga;
   String deskripsiFasilitas;
   String fotoKamar;
 
   RoomTypeModel({
     required this.idTipe,
     required this.nmTipe,
+    required this.harga,
     required this.deskripsiFasilitas,
     required this.fotoKamar,
   });
@@ -61,6 +63,7 @@ class RoomTypeModel {
     return RoomTypeModel(
       idTipe: json['idTipe'],
       nmTipe: json['nmTipe'],
+      harga: json['harga'],
       deskripsiFasilitas: json['deskripsiFasilitas'],
       fotoKamar: json['fotoKamar'],
     );
