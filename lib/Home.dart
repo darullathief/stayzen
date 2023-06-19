@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
     progressDialog?.show();
 
     // Simulasi pengambilan data dari API
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 3));
 
     progressDialog?.hide();
     setState(() {
