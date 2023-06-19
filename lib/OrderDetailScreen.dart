@@ -55,7 +55,6 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
     super.dispose();
   }
 
-
   void _decrementKamar() {
     if (jumlahKamar > 0) {
       setState(() {
@@ -68,20 +67,20 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
     setState(() {
       jumlahKamar++;
     });
+  }
 
   void _handleSubmitButton() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => PaymentDetailScreen()),
     );
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Color(0xFF00A6DA) ,
+        backgroundColor: Color(0xFF00A6DA),
         title: Text("Detail Pemesanan"),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -130,7 +129,6 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
                 ),
               ),
               onTap: () async {
-
                 _selectDate(context);
               },
             ),
