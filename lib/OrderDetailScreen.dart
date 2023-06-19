@@ -30,6 +30,7 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
   TextEditingController checkInController = TextEditingController();
   TextEditingController checkOutController = TextEditingController();
   DateTime? selectedDate;
+  int jumlahKamar = 0;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -54,11 +55,26 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
     super.dispose();
   }
 
+
+  void _decrementKamar() {
+    if (jumlahKamar > 0) {
+      setState(() {
+        jumlahKamar--;
+      });
+    }
+  }
+
+  void _incrementKamar() {
+    setState(() {
+      jumlahKamar++;
+    });
+
   void _handleSubmitButton() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => PaymentDetailScreen()),
     );
+
   }
 
   @override
@@ -67,6 +83,12 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
       appBar: AppBar(
         backgroundColor:Color(0xFF00A6DA) ,
         title: Text("Detail Pemesanan"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -96,6 +118,7 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
             ),
             SizedBox(height: 8),
             TextField(
+              controller: checkInController,
               readOnly: true,
               decoration: InputDecoration(
                 contentPadding:
@@ -153,7 +176,9 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _decrementKamar();
+                      },
                       child: Icon(
                         Icons.remove,
                         size: 14,
@@ -164,11 +189,13 @@ class _OrderDetailScreenPageState extends State<OrderDetailScreenPage> {
                       ),
                     ),
                     Text(
-                      '0',
+                      jumlahKamar.toString(),
                       style: TextStyle(fontSize: 16),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _incrementKamar();
+                      },
                       child: Icon(
                         Icons.add,
                         size: 14,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:stayzen/OrderDetailScreen.dart';
 import 'package:stayzen/login.dart';
 import 'package:stayzen/profil.dart';
 
@@ -11,7 +12,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Stayzen",
-      home: LoginPage(),
+      home: OrderDetailScreenPage(),
     )
   );
 }
