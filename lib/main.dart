@@ -4,15 +4,12 @@ import 'package:stayzen/OrderDetailScreen.dart';
 import 'package:stayzen/login.dart';
 import 'package:stayzen/profil.dart';
 
-
 import 'Home.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Stayzen",
-      home: OrderDetailScreenPage(),
-    )
-  );
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: "Stayzen",
+    home: LoginPage(),
+  ));
 }
