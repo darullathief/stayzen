@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'riwayat.dart';
 import 'dart:async';
 
 class PaymentPage extends StatefulWidget {
@@ -20,6 +21,10 @@ class _PaymentPageState extends State<PaymentPage> {
     Timer(Duration(seconds: 2), () {
       setState(() {
         showToast = false;
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => OrderHistoryPage()),
+        );
       });
     });
   }
@@ -215,3 +220,4 @@ class _PaymentPageState extends State<PaymentPage> {
     );
   }
 }
+

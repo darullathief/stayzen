@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stayzen/Home.dart';
+import 'OrderDetailScreen.dart';
 import 'package:progress_dialog_null_safe/progress_dialog_null_safe.dart';
 
 import 'hotel_controller/HotelDetailController.dart';
@@ -19,15 +20,19 @@ class HotelDetailScreen extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HotelDetailScreenPage(
-          title: 'Flutter Demo Home Page', argument: argument),
+        title: 'Flutter Demo Home Page',
+        argument: argument,
+      ),
     );
   }
 }
 
 class HotelDetailScreenPage extends StatefulWidget {
-  const HotelDetailScreenPage(
-      {Key? key, required this.title, required this.argument})
-      : super(key: key);
+  const HotelDetailScreenPage({
+    Key? key,
+    required this.title,
+    required this.argument,
+  }) : super(key: key);
 
   final String title;
   final String argument;
@@ -70,196 +75,231 @@ class _HotelDetailScreenPageState extends State<HotelDetailScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(" "),
-          leading: BackButton(
-            color: Colors.white,
-            onPressed: (){
-            },
-          ),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF00A6DA),
+        title: Text(" "),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            );
+          },
         ),
-        body: isLoading
-            ? Center(child: CircularProgressIndicator())
-          :SingleChildScrollView(
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                // Text(widget.argument),
-                // Text(hotel.length.toString()),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+      ),
+      body: isLoading
+          ? Center(child: CircularProgressIndicator())
+          : SingleChildScrollView(
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        hotel[0].fotoHotel,
-                        height: 230,
-                        width: 350,
-                        fit: BoxFit.cover,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.network(
+                            hotel[0].fotoHotel,
+                            height: 230,
+                            width: 350,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            hotel[0].nmHotel,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(hotel[0].alamatHotel),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Kamar Tersedia",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Container(
+                            height: 100,
+                            child: ListView.builder(
+                              itemCount: hotel[0].tipeKamar.length,
+                              itemBuilder: (context, index) {
+                                final value =
+                                    hotel[0].tipeKamar.values.toList()[index];
+                                return Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 12),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: Offset(
+                                          0,
+                                          3,
+                                        ), // mengatur bayangan di bawah kontainer
+                                      ),
+                                    ],
+                                    color: Colors.white,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            child: Image.network(
+                                              value.fotoKamar,
+                                              height: 70,
+                                              width: 70,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 8,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                value.nmTipe,
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(value.deskripsiFasilitas),
+                                              Text(value.harga)
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    OrderDetailScreen()),
+                                          );
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Color(
+                                              0xFF00A6DA), // Set the button color
+                                        ),
+                                        child: Text("Pesan"),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Ulasan",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Container(
+                            height: 150,
+                            child: ListView.builder(
+                              itemCount: hotel[0].ulasan.length,
+                              itemBuilder: (context, index) {
+                                final value =
+                                    hotel[0].ulasan.values.toList()[index];
+                                return Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 12),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: Offset(
+                                          0,
+                                          3,
+                                        ), // mengatur bayangan di bawah kontainer
+                                      ),
+                                    ],
+                                    color: Colors.white,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        value.idPengguna,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                      Text(value.tglUlasan),
+                                      Text(value.isiUlasan),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        hotel[0].nmHotel,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      Text(hotel[0].alamatHotel)
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Kamar Tersedia",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      Container(
-                        height: 100,
-                        child: ListView.builder(
-                          itemCount: hotel[0].tipeKamar.length,
-                          itemBuilder: (context, index) {
-                            final value =
-                                hotel[0].tipeKamar.values.toList()[index];
-                            return Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 12),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    spreadRadius: 2,
-                                    blurRadius: 5,
-                                    offset: Offset(0,
-                                        3), // mengatur bayangan di bawah kontainer
-                                  ),
-                                ],
-                                color: Colors.white,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(15),
-                                        child: Image.network(
-                                          value.fotoKamar,
-                                          height: 70,
-                                          width: 70,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            value.nmTipe,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(value.deskripsiFasilitas),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  ElevatedButton(
-                                      onPressed: () {}, child: Text("Pesan"))
-                                ],
-                              ), // Contoh akses nilai dengan kunci 'fotoKamar'
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Ulasan",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      Container(
-                        height: 150,
-                        child: ListView.builder(
-                          itemCount: hotel[0].ulasan.length,
-                          itemBuilder: (context, index) {
-                            final value =
-                                hotel[0].ulasan.values.toList()[index];
-                            return Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 12),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    spreadRadius: 2,
-                                    blurRadius: 5,
-                                    offset: Offset(0,
-                                        3), // mengatur bayangan di bawah kontainer
-                                  ),
-                                ],
-                                color: Colors.white,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    value.idPengguna,
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w700),
-                                  ),
-                                  Text(value.tglUlasan),
-                                  Text(value.isiUlasan)
-                                ],
-                              ), // Contoh akses nilai dengan kunci 'fotoKamar'
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ));
+    );
   }
 }

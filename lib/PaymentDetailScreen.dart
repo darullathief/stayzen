@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'PaymentInfo.dart';
+
 class PaymentDetailScreen extends StatelessWidget {
   const PaymentDetailScreen({Key? key});
 
@@ -51,6 +53,7 @@ class _PaymentDetailScreenScreenPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+      backgroundColor:Color(0xFF00A6DA) ,
         title: Text("Detail Pembayaran"),
       ),
       body: SingleChildScrollView(
@@ -343,7 +346,14 @@ class _PaymentDetailScreenScreenPageState
               ),
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PaymentPage(),
+                      ),
+                    );
+                  },
                   child: Text("Lanjutkan"),
                 ),
               )
